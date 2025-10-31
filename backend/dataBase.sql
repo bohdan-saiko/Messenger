@@ -9,6 +9,9 @@ CREATE TABLE IF NOT EXISTS users (
     avatar VARCHAR(255) DEFAULT 'assets/avatar-1.png'
 );
 
+alter table users
+modify avatar varchar(2);
+
 CREATE TABLE IF NOT EXISTS dialogs (
 	id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
