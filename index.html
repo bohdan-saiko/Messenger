@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reg</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reg/sign.css">
+</head>
+<body>
+    <main>
+        <section class="movable colored">
+            <div class="colored-container">
+                <h1 class="colored-header">Welcome back!</h1>
+                <h4 class="sentence">To keep connected with us please login with your personal info</h4>
+                <button class="change">Sign in</button>
+            </div>
+        </section>
+        <section class="movable form">
+            <h1 id="header">Create account</h1>
+            <div id="media-list">
+                <img class="media" src="../assets/facebook.png" alt="">
+                <img class="media" src="../assets/google.png" alt="">
+                <img class="media" src="../assets/linkedin.png" alt="">
+            </div>
+            <p class="minor-text">or use your email for registration</p>
+            <form action="">
+                <div id="input-wrapper">
+                    <div id="password-wrapper">
+                        <input type="password" placeholder="Password" id="password"> 
+                        <img src="../assets/eye.svg" alt="" class="eye">
+                    </div>
+                    <input type="text" placeholder="Email" id="email">
+                    <input type="text" placeholder="Name" id="name">
+                </div>
+                <div id="button-wrapper">
+                    <button id="main-button">Sign up</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <script src="reg/sign.js"></script>
+</body>
+</html>
