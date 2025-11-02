@@ -128,6 +128,8 @@ function createPopUp(text, type) {
 }
 
 function translate() {
+    localStorage.setItem('position', JSON.stringify(position));
+
     coloredContainer.classList.add('full-transparent');
     formSide.classList.add('full-transparent');
     

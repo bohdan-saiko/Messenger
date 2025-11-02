@@ -262,14 +262,26 @@ header {
     background-color: #4938a8;
     z-index: 12;
 
-    transition: width 600ms ease-out;
+    transition: width 600ms ease-out, transform 600ms ease-out;
 }
 
-.full-screen.clear {
+.full-screen.clear-left {
     width: 0vw;
 }
 
-.full-screen.popup {
+.full-screen.clear-right {
+    transform: translateX(100vw);
+}
+
+.popup-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #4938a8;
+    z-index: 12;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -355,7 +367,11 @@ header {
 }
 
 .transparent {
-    animation: clear 200ms ease-out;
+    animation: clear 300ms ease-out;
+}
+
+.show {
+    animation: shows 300ms ease-out;
 }
 
 @keyframes clear {
@@ -365,5 +381,15 @@ header {
 
     100% {
         opacity: 0;
+    }
+}
+
+@keyframes shows {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 }

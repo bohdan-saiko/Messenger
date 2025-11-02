@@ -5,27 +5,27 @@ let ready = false;
 let choosenAvatar = null;
 
 function preloadData() {
-    const isFirst = JSON.parse(localStorage.getItem('isFirst'));
 
-    if(!isFirst) {
-        loadAnimation();
-
-        localStorage.setItem('isFirst', JSON.stringify(true));
-    }
 }
 
 function loadAnimation() {
     const full = document.querySelector('.full-screen');
-    full.classList.add('clear');
+    const position = JSON.parse(localStorage.getItem('position'));
+    
+    position ? full.classList.add('clear-right') : full.classList.add('clear-left');
+
+    setTimeout(() => {
+        full.remove();
+    }, 600);
 }
 
 function avatarChoose() {
     let choosenAvatarIndex = null;
 
     const background = document.createElement('div');
-    background.classList.add('full-screen');
-    background.classList.add('popup');
-    body.appendChild(background)
+    background.classList.add('popup-screen');
+    background.classList.add('show')
+    body.appendChild(background);
 
     const chooseContainer = document.createElement('div');
     chooseContainer.classList.add('popup-container')
@@ -46,11 +46,14 @@ function avatarChoose() {
     button.addEventListener('click', () => {
         if(choosenAvatar) {
             avatar.src = `assets/avatar-${choosenAvatarIndex}.jpg`;
+            background.classList.remove('show');
             background.classList.add('transparent');
+            const e = document.querySelector('.transparent');
+            console.log(e)
 
             setTimeout(() => {
                 background.remove();
-            },200)
+            },300)
             
         }        
     })
@@ -79,8 +82,10 @@ window.addEventListener('pageshow', (event) => {
         window.location.reload();
     }
 })
-
 setTimeout(() => {
     loadAnimation()
-    avatarChoose()
+    setTimeout(() => {
+        avatarChoose()
+    }, 600)
 }, 100)
+
