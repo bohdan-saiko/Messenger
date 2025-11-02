@@ -8,11 +8,9 @@ require('dotenv').config();
 const bcrypt = require('bcrypt');
 const path = require('path');
 const pool = require('./db.js');
-const cookieParser = require('cookie-parser');
 const saltRound = 10;
 
 const app = express();
-const PORT = 3000;
 
 app.use(cookieParser());
 app.use(cors());
@@ -23,7 +21,7 @@ function createToken(userId) {
     return jwt.sign(
         { id: userId },
         process.env.JWT_SECRET,
-        { expiresIn: process.env.JWT_EXPIREC_IN }
+        { expiresIn: '1d'}
     )
 }
 
@@ -166,6 +164,6 @@ app.post('/login', async (req, res) => {
     }
 })
 
-app.listen(PORT, () => {
-    console.log(`Server started: http://localhost:${PORT}`);
+app.listen(process.env.PORT, () => {
+    console.log(`Server started: http://localhost:${process.env.PORT}`);
 })
